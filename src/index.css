@@ -553,8 +553,8 @@ body.party {
         font-size: 8px;
         justify-content: space-around;
         transform: translateY(3px);
-        box-shadow: 0 5px 4px #888 inset;
-        border-right: 1px solid #ccc;
+        box-shadow: 0 5px 4px #0005 inset;
+        border-right: 1px solid #fff2;
         border-top: 1px solid #0007;
         position: relative;
         top: -2px;
