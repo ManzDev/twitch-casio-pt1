@@ -23,14 +23,23 @@
 }
 
 :root {
-  --casio-bgcolor: #c02628;
   --casio-bgcolor: #171e27;
-  --casio-bgcolor: #becedd;
-  --casio-bgcolor: #c0beaf;
-  --casio-color: #e17d75;
   --casio-color: #909eb4;
-  --casio-color: #6b799e;
-  --casio-color: #4d1210;
+}
+
+.colorButtons {
+  display: flex;
+  justify-content: center;
+  padding: 0 10px;
+
+  & button {
+    width: 25px;
+    height: 25px;
+    margin: 0 5px;
+    border-radius: 5px;
+    border: 2px solid var(--casio-color);
+    background: var(--casio-bgcolor);
+  }
 }
 
 body {

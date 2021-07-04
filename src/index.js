@@ -9,6 +9,23 @@ let currentInstrument = "piano";
 let currentVolume = 1;
 let thanosMode = false;
 
+const COLORMODES = [
+  { bgcolor: "#171e27", color: "#909eb4" },
+  { bgcolor: "#c0beaf", color: "#4d1210" },
+  { bgcolor: "#c02628", color: "#e17d75" },
+  { bgcolor: "#becedd", color: "#6b799e" },
+];
+
+const colorsButtons = document.querySelectorAll(".colorButtons button");
+colorsButtons.forEach((button, index) => {
+  button.style.setProperty("--casio-bgcolor", COLORMODES[index].bgcolor);
+  button.style.setProperty("--casio-color", COLORMODES[index].color);
+  button.addEventListener("click", () => {
+    document.body.style.setProperty("--casio-bgcolor", COLORMODES[index].bgcolor);
+    document.body.style.setProperty("--casio-color", COLORMODES[index].color);
+  });
+});
+
 const instruments = {
   piano: await Soundfont.instrument(ac, "acoustic_grand_piano", options),
   fantasy: await Soundfont.instrument(ac, "lead_2_sawtooth", options),
