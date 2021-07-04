@@ -3,10 +3,11 @@ import NOTES from "./assets/notesMapping.json";
 
 const ac = new AudioContext();
 const options = { soundfont: "FluidR3_GM" };
-let currentInstrument = "piano";
-let currentVolume = 1;
 const cumbiaSong = new Audio("/cumbia.mp3");
 const playingNotes = {};
+let currentInstrument = "piano";
+let currentVolume = 1;
+let thanosMode = false;
 
 const instruments = {
   piano: await Soundfont.instrument(ac, "acoustic_grand_piano", options),
@@ -26,7 +27,6 @@ const stop = (note) => {
 }
 
 const pianoKeys = document.querySelectorAll(".key");
-
 pianoKeys.forEach(key => {
   const note = key.dataset.note;
   key.addEventListener("mousedown", () => play(currentInstrument, note));
@@ -70,6 +70,7 @@ volumeSliders.forEach(input => {
   })
 });
 
+// Thanos egg easter
 const COLORS = ["#d81313", "#eace17", "#33ea12", "#12eae3", "#101eea", "#ea10e3"];
 
 const changeColor = () => {
@@ -77,30 +78,44 @@ const changeColor = () => {
     const color = COLORS[~~(Math.random() * COLORS.length)];
     document.body.classList.remove("dark");
     document.body.style.setProperty("--body-color", color);
-    setTimeout(() => changeColor(), 350);
+    if (thanosMode)
+      setTimeout(() => changeColor(), 350);
   }, 350);
 }
 
-const cViene = () => {
+const disableThanosMode = () => {
+  document.body.classList.remove(...["dark", "party"]);
+  const thanosImage = document.querySelector(".thanos");
+  thanosImage && thanosImage.remove();
+  thanosMode = false;
+  cumbiaSong.pause();
+}
+
+const enableThanosMode = () => {
+  thanosMode = true;
+  cumbiaSong.currentTime = 0;
+  cumbiaSong.play();
   document.body.classList.add("dark");
-  setTimeout(() => {
-    document.body.classList.add("party");
-    changeColor();
-  }, 27000);
+
+  // Thanos image add
   setTimeout(() => {
     const image = document.createElement("img");
     image.src = "/thanos.png";
     image.className = "thanos";
     document.body.appendChild(image);
   }, 18000);
+
+  // Party mode
+  setTimeout(() => {
+    document.body.classList.add("party");
+    changeColor();
+  }, 27000);
 }
 
 const demoButton = document.querySelector("[data-type=demo");
 demoButton.addEventListener("click", () => {
-  if (cumbiaSong.paused) {
-    cumbiaSong.play();
-    cViene();
-  }
+  if (cumbiaSong.paused)
+    enableThanosMode();
   else
-    cumbiaSong.pause();
+    disableThanosMode();
 });
