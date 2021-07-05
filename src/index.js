@@ -3,7 +3,7 @@ import NOTES from "./assets/notesMapping.json";
 
 const ac = new AudioContext();
 const options = { soundfont: "FluidR3_GM" };
-const cumbiaSong = new Audio("/cumbia.mp3");
+const cumbiaSong = new Audio("cumbia.mp3");
 const playingNotes = {};
 let currentInstrument = "piano";
 let currentVolume = 1;
