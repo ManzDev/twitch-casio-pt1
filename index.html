@@ -7,13 +7,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Casio PT-1</title>
   
-  <link rel="preload" href="/twitch-casio-pt1/michroma.woff2" as="font">
   
-<script type="module" crossorigin src="/twitch-casio-pt1/index.c661ebd1.js"></script>
-  <link rel="stylesheet" href="/twitch-casio-pt1/index.2b7f6306.css">
+<script type="module" crossorigin src="/twitch-casio-pt1/index.da75c039.js"></script>
+  <link rel="stylesheet" href="/twitch-casio-pt1/index.f5e4f57b.css">
 </head>
 
 <body>
+
+  <div class="colorButtons">
+    <button class="mode1"></button>
+    <button class="mode2"></button>
+    <button class="mode3"></button>
+    <button class="mode4"></button>
+  </div>
 
   <div class="container">
     <div class="casio-pt1">
@@ -96,16 +102,16 @@
                 <input id="v0" type="radio" name="volume" value="0">
                 <label for="v0"></label>
 
-                <input id="v1" type="radio" name="volume" value="1">
+                <input id="v1" type="radio" name="volume" value="0.25">
                 <label for="v1"></label>
 
-                <input id="v2" type="radio" name="volume" value="2">
+                <input id="v2" type="radio" name="volume" value="0.5">
                 <label for="v2"></label>
 
-                <input id="v3" type="radio" name="volume" value="3">
+                <input id="v3" type="radio" name="volume" value="0.75">
                 <label for="v3"></label>
 
-                <input id="v4" type="radio" name="volume" value="4" checked>
+                <input id="v4" type="radio" name="volume" value="1" checked>
                 <label for="v4"></label>
               </div>
               <div class="tone slider">
@@ -122,14 +128,14 @@
                 <label for="flute"></label>
               </div>
               <div class="buttons group">
-                <div class="button steelblue"></div>
-                <div class="button orange"></div>
-                <div class="button orange"></div>
-                <div class="button orange"></div>
-                <div class="button orange"></div>
-                <div class="button gold"></div>
-                <div class="button green"></div>
-                <div class="button grey"></div>
+                <div class="button steelblue" data-type="clear"></div>
+                <div class="button orange" data-type="del"></div>
+                <div class="button orange" data-type="down"></div>
+                <div class="button orange" data-type="up"></div>
+                <div class="button orange" data-type="rhythm"></div>
+                <div class="button gold" data-type="reset"></div>
+                <div class="button green" data-type="demo"></div>
+                <div class="button grey" data-type="memory"></div>
               </div>
               <div class="end group">
                 <div class="big button steelblue"></div>
@@ -161,37 +167,37 @@
           </div>
           <div class="keys">
             <div class="black-keys">
-              <div class="black key"></div>
-              <div class="black key"></div>
-              <div class="black key"></div>
-              <div class="black key"></div>
-              <div class="black key"></div>
-              <div class="black key"></div>
-              <div class="black key"></div>
-              <div class="black key"></div>
-              <div class="black key"></div>
-              <div class="black key"></div>
-              <div class="black key"></div>
-              <div class="black key"></div>
+              <div class="black key" data-note="G#3"></div>
+              <div class="black key" data-note="A#3"></div>
+              <div class="black key" data-note="C#4"></div>
+              <div class="black key" data-note="D#4"></div>
+              <div class="black key" data-note="F#4"></div>
+              <div class="black key" data-note="G#4"></div>
+              <div class="black key" data-note="A#4"></div>
+              <div class="black key" data-note="C#5"></div>
+              <div class="black key" data-note="D#5"></div>
+              <div class="black key" data-note="F#5"></div>
+              <div class="black key" data-note="G#5"></div>
+              <div class="black key" data-note="A#5"></div>
             </div>
             <div class="white-keys">
-              <div class="white key"></div>
-              <div class="white key"></div>
-              <div class="white key"></div>
-              <div class="white key"></div>
-              <div class="white key"></div>
-              <div class="white key"></div>
-              <div class="white key"></div>
-              <div class="white key"></div>
-              <div class="white key"></div>
-              <div class="white key"></div>
-              <div class="white key"></div>
-              <div class="white key"></div>
-              <div class="white key"></div>
-              <div class="white key"></div>
-              <div class="white key"></div>
-              <div class="white key"></div>
-              <div class="white key"></div>
+              <div class="white key" data-note="G3"></div>
+              <div class="white key" data-note="A3"></div>
+              <div class="white key" data-note="B3"></div>
+              <div class="white key" data-note="C4"></div>
+              <div class="white key" data-note="D4"></div>
+              <div class="white key" data-note="E4"></div>
+              <div class="white key" data-note="F4"></div>
+              <div class="white key" data-note="G4"></div>
+              <div class="white key" data-note="A4"></div>
+              <div class="white key" data-note="B4"></div>
+              <div class="white key" data-note="C5"></div>
+              <div class="white key" data-note="D5"></div>
+              <div class="white key" data-note="E5"></div>
+              <div class="white key" data-note="F5"></div>
+              <div class="white key" data-note="G5"></div>
+              <div class="white key" data-note="A5"></div>
+              <div class="white key" data-note="B5"></div>
             </div>
           </div>
           <div class="note-keys">
