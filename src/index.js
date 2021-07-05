@@ -27,21 +27,27 @@ colorsButtons.forEach((button, index) => {
 });
 
 const instruments = {
-  piano: await Soundfont.instrument(ac, "acoustic_grand_piano", options),
-  fantasy: await Soundfont.instrument(ac, "lead_2_sawtooth", options),
-  violin: await Soundfont.instrument(ac, "violin", options),
-  flute: await Soundfont.instrument(ac, "flute", options)
+  piano: "acoustic_grand_piano",
+  fantasy: "lead_2_sawtooth",
+  violin: "violin",
+  flute: "flute"
+};
+
+for (const pair of Object.entries(instruments)) {
+  const [key, value] = pair;
+  Soundfont.instrument(ac, value, options)
+    .then(data => { instruments[key] = data; });
 }
 
 const play = (instrument, note, duration = 6) => {
   playingNotes[note] = instruments[instrument].start(note, ac.currentTime, { duration, gain: currentVolume });
-}
+};
 
 const stop = (note) => {
   const playingNote = playingNotes[note];
   playingNote.stop();
   playingNotes[note] = null;
-}
+};
 
 const pianoKeys = document.querySelectorAll(".key");
 pianoKeys.forEach(key => {
@@ -84,7 +90,7 @@ volumeSliders.forEach(input => {
   input.addEventListener("click", () => {
     const volume = input.value;
     currentVolume = Number(volume);
-  })
+  });
 });
 
 // Thanos egg easter
@@ -95,10 +101,9 @@ const changeColor = () => {
     const color = COLORS[~~(Math.random() * COLORS.length)];
     document.body.classList.remove("dark");
     document.body.style.setProperty("--body-color", color);
-    if (thanosMode)
-      setTimeout(() => changeColor(), 350);
+    if (thanosMode) { setTimeout(() => changeColor(), 350); }
   }, 350);
-}
+};
 
 const disableThanosMode = () => {
   document.body.classList.remove(...["dark", "party"]);
@@ -106,7 +111,7 @@ const disableThanosMode = () => {
   thanosImage && thanosImage.remove();
   thanosMode = false;
   cumbiaSong.pause();
-}
+};
 
 const enableThanosMode = () => {
   thanosMode = true;
@@ -127,12 +132,9 @@ const enableThanosMode = () => {
     document.body.classList.add("party");
     changeColor();
   }, 27000);
-}
+};
 
 const demoButton = document.querySelector("[data-type=demo");
 demoButton.addEventListener("click", () => {
-  if (cumbiaSong.paused)
-    enableThanosMode();
-  else
-    disableThanosMode();
+  if (cumbiaSong.paused) { enableThanosMode(); } else { disableThanosMode(); }
 });

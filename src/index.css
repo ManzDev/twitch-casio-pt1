@@ -91,7 +91,7 @@ body.party {
   background: var(--casio-bgcolor);
   border-radius: 4px;
   font-family: Raleway, Arial, serif;
-  font-weight: 700;
+  font-weight: 400;
   font-size: 9px;
   color: var(--casio-color);
   padding: 8px 5px 5px 5px;
@@ -509,7 +509,7 @@ body.party {
 
           & .white.key {
             width: 100%;
-            height: 100%;
+            height: 136px;
             background: #fff;
             border: 1px solid #ccc;
             border-left: 2px solid #fff;
