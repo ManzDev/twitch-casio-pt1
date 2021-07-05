@@ -122,7 +122,7 @@ const enableThanosMode = () => {
   // Thanos image add
   setTimeout(() => {
     const image = document.createElement("img");
-    image.src = "/thanos.png";
+    image.src = "thanos.png";
     image.className = "thanos";
     document.body.appendChild(image);
   }, 18000);
